@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-2.2.4.js"></script>
+  <title>Exercice 3 JQ partie 3</title>
+<!--Balise style pour augmenter la dimension de l'input-->
+  <style media="screen">
+    input{
+      width: 280px;
+    }
+  </style>
+</head>
+<body>
+  <!--Balise formulaire-->
+  <form>
+    <label for="answer"></label><input type="text" name="answer" placeholder = "Tape ton nombre compris entre 0 et 100" id="number">
+    <button type="button" name="button" id="click" >Vérifie ta réponse</button>
+    <h1>Résultat</h1>
+  </form>
+  <script>
+$(function() {
+  // C'est une fonction qui permet de choisir un nombre compris entre 0 et 1 le fait de multplier par 101 permet d'avoir un choix aléatoire compris entre 0 et 100 dans la mesure où le dernier nombre n'est pas pris en compte.
+  var ask = parseInt(Math.random() * 101);
+  var attempt = 0; // Déclaration de la balise tentative
+  $('#click').click(function () { // Déclaration de l'événement click
+    attempt ++; // Incrémentation de la variable tentative
+    // Déclaration de la variable answer pour récupérer la valeur de l'input
+    var answer = $('#number').val();
+    //Vérifier si c'est un nombre
+    if (isNaN(answer)) {
+      alert('Ce n\'est pas un nombre !');
+      // Maintenant que nous avons vérifié que l'utilisateur a bien entré un nombre
+    }else {
+      if (answer == ask) {
+        $('h1').text('Correcte en ' + attempt +' tentative(s)');// En tenant compte de la valeur de la variable tentative
+      }else if (answer > ask){
+        $('h1').text('moins');
+      }else if (answer < ask) {
+        $('h1').text('plus');
+      }
+    }
+  });
+});
+  </script>
+</body>
+</html>

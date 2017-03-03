@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-2.2.4.js"></script>
+  <title>Exercice 2 JQ partie 3</title>
+</head>
+<body>
+  <form>
+    <button type="button" name="button" id="clickP" >Plus</button>
+    <button type="button" name="button" id="clickM">Moins</button>
+    <h1>Vous n'avez pas encore cliqué !!</h1>
+  </form>
+  <script>
+$(function () {
+  var number = 0;
+  $('#clickP').click(function() {
+    number ++;
+    $('h1').text(number);
+  });
+  $('#clickM').click(function() {
+    number --;
+    $('h1').text(number);
+  });
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css"> <!--link de ma feuille style.css-->
+  <script src="jquery-2.2.4.js"></script>
+  <title>Exercice 5 JQ partie 3</title>
+</head>
+<body>
+  <div class="carré"> <!--Création de la classe carré-->
+  </div>
+  <script>
+$(function () {
+  // alert(e.which) = alerte pour connaître le chiffre correspondant à une touche
+  var margeTop = 0; // Déclaration de la variable margeTop dont l'origine = 0
+  var margeLeft = 0; // Déclaration de la variable margeLeft dont origine = 0
+ $('body').keypress(function(e) { // Appel de la balise body et déclaration de l'événement keypress
+   var carre = $('.carré'); // Déclaration de la variable carre qui appel la div de classe carré
+   if (e.which == '56') { // Si l'événement appel la touche (méthode which) 56
+     if (margeTop == 0) { // Si on atteint margeTop = 0 alors
+        margeTop = 600; // le carré apparaît en bas de l'écran
+        carre.css('margin-top',margeTop + 'px'); // Convertion des valeurs en px
+     }else {  // Si non
+       margeTop-=10; // Déplacement du carré de 10px
+       carre.css('margin-top',margeTop + 'px');
+     }
+/*Même déroulement mais avec l'appel des touches 50, 54 et 52*/
+   }else if (e.which == '50') {
+     if (margeTop == 600) {
+       margeTop = 0;
+       carre.css('margin-top',margeTop + 'px');
+     }else {
+       margeTop += 10;
+       carre.css('margin-top',margeTop + 'px');
+     }
+   }else if (e.which == '52') {
+     if (margeLeft == 0) {
+       margeLeft = 1280;
+       carre.css('margin-left',margeLeft + 'px');
+     }else {
+       margeLeft -= 10;
+       carre.css('margin-left',margeLeft + 'px');
+     }
+   }else if (e.which == '54') {
+     if (margeLeft == 1280) {
+       margeLeft = 0;
+       carre.css('margin-left',margeLeft + 'px');
+     }else {
+       margeLeft += 10;
+       carre.css('margin-left',margeLeft + 'px');
+     }
+   }
+ });
+});
+  </script>
+</body>
+</html>
