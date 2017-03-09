@@ -11,10 +11,15 @@
     <h1>Vous n'avez pas encore cliqué !!</h1>
   </form>
   <script>
+// Déclaration de la fonction
 $(function () {
+// Déclaration de la variable number
   var number = 0;
+// Déclaration de la fonction click
   $('#click').click(function() {
-    number ++
+// Incrémantation de la variable number; elle augmente de 1 à chaque click
+    number ++;
+// Affiche la variable number
     $('h1').text(number);
   });
 });

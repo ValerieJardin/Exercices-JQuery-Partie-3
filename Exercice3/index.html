@@ -20,20 +20,24 @@
   </form>
   <script>
 $(function() {
-  // C'est une fonction qui permet de choisir un nombre compris entre 0 et 1 le fait de multplier par 101 permet d'avoir un choix aléatoire compris entre 0 et 100 dans la mesure où le dernier nombre n'est pas pris en compte.
+// C'est une fonction qui permet de choisir un nombre compris entre 0 et 1 le fait de multplier par 101 permet d'avoir un choix aléatoire compris entre 0 et 100 dans la mesure où le dernier nombre n'est pas pris en compte.
   var ask = parseInt(Math.random() * 101);
-  var attempt = 0; // Déclaration de la balise tentative
-  $('#click').click(function () { // Déclaration de l'événement click
-    attempt ++; // Incrémentation de la variable tentative
-    // Déclaration de la variable answer pour récupérer la valeur de l'input
+// Déclaration de la balise tentative dont l'origine est 0
+  var attempt = 0;
+// Déclaration de l'événement click
+  $('#click').click(function () {
+// Incrémentation de la variable tentative
+    attempt ++;
+// Déclaration de la variable answer pour récupérer la valeur de l'input
     var answer = $('#number').val();
-    //Vérifier si c'est un nombre
+//Vérifier si c'est un nombre
     if (isNaN(answer)) {
       alert('Ce n\'est pas un nombre !');
-      // Maintenant que nous avons vérifié que l'utilisateur a bien entré un nombre
+// Maintenant que nous avons vérifié que l'utilisateur a bien entré un nombre
     }else {
       if (answer == ask) {
-        $('h1').text('Correcte en ' + attempt +' tentative(s)');// En tenant compte de la valeur de la variable tentative
+// En tenant compte de la valeur de la variable tentative
+        $('h1').text('Correcte en ' + attempt +' tentative(s)');
       }else if (answer > ask){
         $('h1').text('moins');
       }else if (answer < ask) {
