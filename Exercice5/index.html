@@ -10,42 +10,45 @@
   <div class="carré"> <!--Création de la classe carré-->
   </div>
   <script>
-$(function () {
-  // alert(e.which) = alerte pour connaître le chiffre correspondant à une touche
-  var margeTop = 0; // Déclaration de la variable margeTop dont l'origine = 0
-  var margeLeft = 0; // Déclaration de la variable margeLeft dont origine = 0
- $('body').keypress(function(e) { // Appel de la balise body et déclaration de l'événement keypress
+$(function(){
+// alert(e.which) = alerte pour connaître le chiffre correspondant à une touche
+// Déclaration de la variable margeTop dont l'origine = 0
+  var margeTop = 0;
+// Déclaration de la variable margeLeft dont origine = 0
+  var margeLeft = 0;
+// Appel de la balise body et déclaration de l'événement keypress  
+ $('body').keypress(function(e){
    var carre = $('.carré'); // Déclaration de la variable carre qui appel la div de classe carré
-   if (e.which == '56') { // Si l'événement appel la touche (méthode which) 56
-     if (margeTop == 0) { // Si on atteint margeTop = 0 alors
+   if (e.which == '56'){ // Si l'événement appel la touche (méthode which) 56
+     if (margeTop == 0){ // Si on atteint margeTop = 0 alors
         margeTop = 600; // le carré apparaît en bas de l'écran
         carre.css('margin-top',margeTop + 'px'); // Convertion des valeurs en px
-     }else {  // Si non
+     }else{  // Si non
        margeTop-=10; // Déplacement du carré de 10px
        carre.css('margin-top',margeTop + 'px');
      }
 /*Même déroulement mais avec l'appel des touches 50, 54 et 52*/
-   }else if (e.which == '50') {
-     if (margeTop == 600) {
+   }else if (e.which == '50'){
+     if (margeTop == 600){
        margeTop = 0;
        carre.css('margin-top',margeTop + 'px');
-     }else {
+     }else{
        margeTop += 10;
        carre.css('margin-top',margeTop + 'px');
      }
-   }else if (e.which == '52') {
-     if (margeLeft == 0) {
+   }else if (e.which == '52'){
+     if (margeLeft == 0){
        margeLeft = 1280;
        carre.css('margin-left',margeLeft + 'px');
-     }else {
+     }else{
        margeLeft -= 10;
        carre.css('margin-left',margeLeft + 'px');
      }
-   }else if (e.which == '54') {
-     if (margeLeft == 1280) {
+   }else if (e.which == '54'){
+     if (margeLeft == 1280){
        margeLeft = 0;
        carre.css('margin-left',margeLeft + 'px');
-     }else {
+     }else{
        margeLeft += 10;
        carre.css('margin-left',margeLeft + 'px');
      }
@@ -53,5 +56,58 @@ $(function () {
  });
 });
   </script>
+  <!--
+  $(function(){
+   //je déclare 2 variables dans lesquels je donne la hauteur et la largeur de la fenêtre au chargement de la page
+   var largeur_fenetre = $(window).width();
+   var hauteur_fenetre = $(window).height();
+   //quand je clique sur le formulaire je récupère valeur imput et la fonction démarre
+   $('#titre').keyup(function(e){
+     //je déclare 2 variables pour récupérer la position du carré (haut et gauche)
+     var top = $('#carre').offset().top;
+     var left = $('#carre').offset().left;
+     //sert à contrôler dans le firebug la position réelle du carré
+     console.log($('#carre').offset());
+     //je déclare la condition switch (selon la touche pressée)
+     switch (e.keyCode){
+       //la touche 39 qui correspond à la flèche sur le clavier droite
+       case 39:
+       // si le coté gauche du carré n'est pas au bord droit de la fenetre
+       if (left < (largeur_fenetre-200)){
+         //alors on deplace le carré vers la droite
+         $('#carre').css('margin-left', '+=10');
+       }
+       //sinon si le coté gauche du carré arrive au bord droit de la fenetre
+       else{
+         //alors on remet le carré à gauche
+         $('#carre').css('margin-left','0');
+       }
+       break;
+       case 37:
+
+       if(left>0){
+         $('#carre').css('margin-left', '-=10');
+       }
+       else{
+         $('#carre').css('margin-left',largeur_fenetre-200);
+       }
+       break;
+       case 40:
+       if(top < (hauteur_fenetre-200)){
+         $('#carre').css('margin-top', '+=10');
+       }
+       else{
+         $('#carre').css('margin-top','0');
+       }
+       break;
+       case 38:
+       if(top>0){
+         $('#carre').css('margin-top', '-=10');
+       }
+       else{
+         $('#carre').css('margin-top',hauteur_fenetre-200);
+       }
+       default:
+     });-->
 </body>
 </html>

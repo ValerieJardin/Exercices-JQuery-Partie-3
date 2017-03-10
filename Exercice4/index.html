@@ -14,36 +14,48 @@
 </head>
 <body>
   <!--Création des 5 boutons-->
-  <button type="button" name="button" id="height">Hauteur Plus</button>
-  <button type="button" name="button" id="green">Rectangle Vert</button>
-  <button type="button" name="button" id="resetColor">Couleur Initiale</button>
-  <button type="button" name="button" id="hide">Masquer</button>
-  <button type="button" name="button" id="show">Apparaître</button>
-  <div class="rectangle"> <!--Création de la classe rectangle-->
+  <button type="button" name="button1" id="height">Hauteur Plus</button>
+  <button type="button" name="button2" id="green">Rectangle Vert</button>
+  <button type="button" name="button3" id="resetColor">Couleur Initiale</button>
+  <button type="button" name="button4" id="hide">Masquer</button>
+  <button type="button" name="button5" id="show">Apparaître</button>
+<!--Création de la classe rectangle-->
+  <div class="rectangle">
   </div>
   <script>
-  $(function () {
-    var height = 30; //Valeur d'origine de la hauteur de mon rextangle d'après mon css
-    $('#height').click(function () { // Evénement pour le bouton
-      if (height == 100) { //Si valeur de la variable height est 100
-        height = 10; //Retour de la valeur de height à 10 si atteint 100 pour pouvoir recommencer
-        $('.rectangle').css('height', '10px'); // Comme valeur 100 atteinte alors affichage du rectangle à une valeur de 10px
-      }else {
-        height += 10;// Par contre si la valeur de 100 n'est pas atteinte alors augmentation de 10
-        $('.rectangle').css('height', height + 'px');//Changement de la hauteur définie dans le css , prendre la valeur de height + la convertir en px
+//Valeur d'origine de la hauteur de mon rectangle d'après mon css
+    var height = 30;
+//Evénement pour le bouton
+$(function(){
+//Si valeur de la variable height est 100
+//Retour de la valeur de height à 10 si atteint 100 pour pouvoir recommencer
+          height = 10;
+          $('#height').click(function(){
+// Comme valeur 100 atteinte alors affichage du rectangle à une valeur de 10px
+if (height == 100){
+    $('.rectangle').css('height', '10px');
+// Par contre si la valeur de 100 n'est pas atteinte alors augmentation de 10
+        height += 10;
+//Changement de la hauteur définie dans le css , prendre la valeur de height + la convertir en px
+}else{
+    $('.rectangle').css('height', height + 'px');
       }
     });
-    $('#green').click(function () {
-      $('.rectangle').css('backgroundColor', 'green'); //Changement du backgroundColor en vert
+      //Changement du backgroundColor en vert
+      $('.rectangle').css('backgroundColor', 'green');
     });
-    $('#resetColor').click(function () {
-      $('.rectangle').css('backgroundColor', 'black');//Retour du backgroundColor en noir
+    $('#green').click(function(){
+    $('#resetColor').click(function(){
+//Retour du backgroundColor en noir
+      $('.rectangle').css('backgroundColor', 'black');
     });
-    $('#hide').click(function () {
-      $('.rectangle').hide(); //Disparition du rectangle
+    $('#hide').click(function(){
+//Disparition du rectangle
+      $('.rectangle').hide();
     });
-    $('#show').click(function () {
-      $('.rectangle').show(); //Réapparition du rectangle
+    $('#show').click(function(){
+//Réapparition du rectangle
+      $('.rectangle').show();
     });
   });
   </script>
